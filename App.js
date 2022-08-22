@@ -23,21 +23,21 @@ const FetchData = () => {
           "https://ejditq67mwuzeuwrlp5fs3egwu0yhkjz.lambda-url.us-east-2.on.aws/api/books/search",
           {
             headers: {
-              "Access-Control-Allow-Headers": "true",
-              "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Credentials": "true",
             },
-            data: {
-              title: `${search}`,
-            },
+            title: `${search}`
+            // data: {
+            //   title: `${search}`,
+            // },
           }
         )
         .then((res) => {
           setBook(res.data);
+          // setSearch("");
         });
     } catch (err) {
       setError("Book Not Found");
+      console.log(error)
     }
   };
 
@@ -50,7 +50,7 @@ const FetchData = () => {
               `https://ejditq67mwuzeuwrlp5fs3egwu0yhkjz.lambda-url.us-east-2.on.aws/api/authors/${id}`,
               {
                 headers: {
-                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*",
                 },
               }
             )
@@ -63,6 +63,7 @@ const FetchData = () => {
       });
     };
     }; 
+
 
   return (
     <div className="main-page">
