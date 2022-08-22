@@ -26,14 +26,10 @@ const FetchData = () => {
               "Access-Control-Allow-Origin": "*",
             },
             title: `${search}`
-            // data: {
-            //   title: `${search}`,
-            // },
           }
         )
         .then((res) => {
           setBook(res.data);
-          // setSearch("");
         });
     } catch (err) {
       setError("Book Not Found");
